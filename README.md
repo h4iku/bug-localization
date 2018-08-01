@@ -9,7 +9,7 @@
     ```
     git clone https://github.com/h4iku/bug-localization.git
     ```
-    Download the datasets from [here](http://www.mediafire.com/file/5x0vjnno666ynst/data.zip/file), and unzip it in the root directory of the cloned repository.
+    Download the datasets file from [here](http://www.mediafire.com/file/5x0vjnno666ynst/data.zip/file), and unzip it in the root directory of the cloned repository.
     
 3. Check the path of datasets in `datasets.py` module and change the value of the `DATASET` variable to choose different datasets (values can be `aspectj`, `swt`, and `zxing`).
     Run the main module:
