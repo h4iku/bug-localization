@@ -128,20 +128,20 @@ def evaluate(src_files, bug_reports, coeffs, *rank_scores):
 
 
 def main():
-    with open(DATASET.root + 'preprocessed_src.pickle', 'rb') as file:
+    with open(DATASET.root / 'preprocessed_src.pickle', 'rb') as file:
         src_files = pickle.load(file)
-    with open(DATASET.root + 'preprocessed_reports.pickle', 'rb') as file:
+    with open(DATASET.root / 'preprocessed_reports.pickle', 'rb') as file:
         bug_reports = pickle.load(file)
     
-    with open(DATASET.root + 'token_matching.json', 'r') as file:
+    with open(DATASET.root / 'token_matching.json', 'r') as file:
         token_matching_score = json.load(file)  
-    with open(DATASET.root + 'vsm_similarity.json', 'r') as file:
+    with open(DATASET.root / 'vsm_similarity.json', 'r') as file:
         vsm_similarity_score = json.load(file)
-    with open(DATASET.root + 'stack_trace.json', 'r') as file:
+    with open(DATASET.root / 'stack_trace.json', 'r') as file:
         stack_trace_score = json.load(file)
-    with open(DATASET.root + 'semantic_similarity.json', 'r') as file:
+    with open(DATASET.root / 'semantic_similarity.json', 'r') as file:
         semantic_similarity_score = json.load(file)
-    with open(DATASET.root + 'fixed_bug_reports.json', 'r') as file:
+    with open(DATASET.root / 'fixed_bug_reports.json', 'r') as file:
         fixed_bug_reports_score = json.load(file)
     
     params = estiamte_params(src_files, bug_reports,
@@ -162,7 +162,7 @@ def main():
 # # Uncomment these for precision, recall, and f-measure results
 #     print('Precision@N:', results[4])
 #     print('Recall@N:', results[5])
-#     print('F-Measure@N:', results[6])
+#     print('F-measure@N:', results[6])
 
 
 if __name__ == '__main__':

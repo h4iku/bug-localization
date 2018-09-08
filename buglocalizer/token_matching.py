@@ -60,15 +60,15 @@ def check_matchings(src_files, bug_reports):
 def main():
     
     # Unpickle preprocessed data
-    with open(DATASET.root + 'preprocessed_src.pickle', 'rb') as file:
+    with open(DATASET.root / 'preprocessed_src.pickle', 'rb') as file:
         src_files = pickle.load(file)
-    with open(DATASET.root + 'preprocessed_reports.pickle', 'rb') as file:
+    with open(DATASET.root / 'preprocessed_reports.pickle', 'rb') as file:
         bug_reports = pickle.load(file)
         
     scores = check_matchings(src_files, bug_reports)
     
     # Saving scores in a json file
-    with open(DATASET.root + 'token_matching.json', 'w') as file:
+    with open(DATASET.root / 'token_matching.json', 'w') as file:
         json.dump(scores, file)
 
     
