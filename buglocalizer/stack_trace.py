@@ -51,14 +51,14 @@ def get_traces_score(src_files, bug_reports):
     
 def main():
     
-    with open(DATASET.root + 'preprocessed_src.pickle', 'rb') as file:
+    with open(DATASET.root / 'preprocessed_src.pickle', 'rb') as file:
         src_files = pickle.load(file)
-    with open(DATASET.root + 'preprocessed_reports.pickle', 'rb') as file:
+    with open(DATASET.root / 'preprocessed_reports.pickle', 'rb') as file:
         bug_reports = pickle.load(file)
         
     all_scores = get_traces_score(src_files, bug_reports)
     
-    with open(DATASET.root + 'stack_trace.json', 'w') as file:
+    with open(DATASET.root / 'stack_trace.json', 'w') as file:
         json.dump(all_scores, file)
 
 

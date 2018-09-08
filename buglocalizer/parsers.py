@@ -81,7 +81,7 @@ class Parser:
         """
         
         # Getting the list of source files recursively from the source directory
-        src_addresses = glob.glob(self.src + '/**/*.java', recursive=True)
+        src_addresses = glob.glob(str(self.src) + '/**/*.java', recursive=True)
 
         # Creating a java lexer instance for pygments.lex() method
         java_lexer = JavaLexer()
@@ -171,16 +171,11 @@ class Parser:
         
         return src_files
 
-       
 def test():
-    # this module is used and invokes by the preprocessing module
-    pass
-
-def main():
     import datasets
     
     parser = Parser(datasets.zxing)
-#     x = parser.report_parser()
+    x = parser.report_parser()
     d = parser.src_parser()
     
     src_id, src = list(d.items())[10]
@@ -188,4 +183,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    test()

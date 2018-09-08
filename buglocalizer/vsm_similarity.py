@@ -67,16 +67,16 @@ class Similarity:
 def main():
     
     # Unpickle preprocessed data
-    with open(DATASET.root + 'preprocessed_src.pickle', 'rb') as file:
+    with open(DATASET.root / 'preprocessed_src.pickle', 'rb') as file:
         src_files = pickle.load(file)
-    with open(DATASET.root + 'preprocessed_reports.pickle', 'rb') as file:
+    with open(DATASET.root / 'preprocessed_reports.pickle', 'rb') as file:
         bug_reports = pickle.load(file)
     
     sm = Similarity(src_files)
     simis = sm.find_similars(bug_reports)
     
     # Saving similarities in a json file
-    with open(DATASET.root + 'vsm_similarity.json', 'w') as file:
+    with open(DATASET.root / 'vsm_similarity.json', 'w') as file:
         json.dump(simis, file)
     
     
