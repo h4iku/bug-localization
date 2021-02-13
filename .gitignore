@@ -1,14 +1,11 @@
-# Eclipse and Pydev project settings
-.project
-.pydevproject
+# Environment
+env/
 
-# Byte-compiled files
+# Byte-compiled / optimized / DLL files
+__pycache__/
 *.py[cod]
 *$py.class
 
 # Dataset files and generated assets
 data/
-*.pickle
-*.json
-*.txt
 *.csv

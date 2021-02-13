@@ -2,7 +2,7 @@ from collections import namedtuple
 from pathlib import Path
 
 # Dataset root directory
-_DATASET_ROOT = Path('../data')
+_DATASET_ROOT = Path(__file__).parent / '../data'
 
 Dataset = namedtuple('Dataset', ['name', 'root', 'src', 'bug_repo'])
 
@@ -28,8 +28,8 @@ zxing = Dataset(
     _DATASET_ROOT / 'ZXing/ZXingBugRepository.xml'
 )
 
-### Current dataset in use. (change this name to change the dataset)
-DATASET = zxing
+# Current dataset in use. (change this name to change the dataset)
+DATASET = aspectj
 
 if __name__ == '__main__':
     print(DATASET.name, DATASET.root, DATASET.src, DATASET.bug_repo)
