@@ -29,7 +29,7 @@ zxing = Dataset(
 )
 
 # Current dataset in use. (change this name to change the dataset)
-DATASET = aspectj
+DATASET = zxing
 
 if __name__ == '__main__':
     print(DATASET.name, DATASET.root, DATASET.src, DATASET.bug_repo)
