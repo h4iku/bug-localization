@@ -9,6 +9,7 @@
     cd bug-localization
     python -m venv env
     ./env/Scripts/activate
+    python -m pip install -U pip setuptools
     pip install -r requirements.txt
     ```
     Also, download and install the spaCy's [`en_core_web_lg`](https://spacy.io/models/en#en_core_web_lg) pretrain model and [NLTK data](http://www.nltk.org/data.html).
