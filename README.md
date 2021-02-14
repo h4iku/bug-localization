@@ -12,7 +12,7 @@
     python -m pip install -U pip setuptools
     pip install -r requirements.txt
     ```
-    Also, download and install the spaCy's [`en_core_web_lg`](https://spacy.io/models/en#en_core_web_lg) pretrain model and [NLTK data](http://www.nltk.org/data.html).
+    Also, download and install the spaCy's [`en_core_web_lg`](https://spacy.io/models/en#en_core_web_lg) pretrained model and [NLTK data](http://www.nltk.org/data.html).
     
 3. Download the datasets file from [here](http://www.mediafire.com/file/5x0vjnno666ynst/data.zip/file), and unzip it in the root directory of the cloned repository.
     
