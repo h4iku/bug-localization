@@ -6,4 +6,4 @@ nltk==3.5
 inflection==0.5.1
 scipy==1.6.1
 numpy==1.20.1
-scikit_learn==0.24.1
+scikit-learn==0.24.1
