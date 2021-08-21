@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: Gharibi
+  given-names: Reza
+  orcid: https://orcid.org/0000-0001-6596-3658
+- family-names: Rasekh
+  given-names: Amir Hossein
+- family-names: Sadreddini
+  given-names: Mohammad Hadi
+- family-names: Fakhrahmad
+  given-names: Seyed Mostafa
+title: "Leveraging textual properties of bug reports to localize relevant source files"
+doi: 10.1016/j.ipm.2018.07.004
+url: https://github.com/h4iku/bug-localization
+preferred-citation:
+  type: article
+  authors:
+  - family-names: Gharibi
+    given-names: Reza
+    orcid: https://orcid.org/0000-0001-6596-3658
+  - family-names: Rasekh
+    given-names: Amir Hossein
+  - family-names: Sadreddini
+    given-names: Mohammad Hadi
+  - family-names: Fakhrahmad
+    given-names: Seyed Mostafa
+  doi: 10.1016/j.ipm.2018.07.004
+  journal: "Information Processing & Management"
+  month: 11
+  start: 1058
+  end: 1076
+  title: "Leveraging textual properties of bug reports to localize relevant source files"
+  issue: 6
+  volume: 54
+  year: 2018
+  url: https://www.sciencedirect.com/science/article/pii/S0306457318301092
