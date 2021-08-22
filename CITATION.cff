@@ -12,7 +12,7 @@ authors:
   given-names: Seyed Mostafa
 title: "Leveraging textual properties of bug reports to localize relevant source files"
 doi: 10.1016/j.ipm.2018.07.004
-url: https://github.com/h4iku/bug-localization
+repository-code: https://github.com/h4iku/bug-localization
 preferred-citation:
   type: article
   authors:
