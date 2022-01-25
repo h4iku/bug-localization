@@ -33,7 +33,7 @@ class FeatureSelector(BaseEstimator, TransformerMixin):
 def multilabel_clf(train_set, test_set, src_keys):
     """Multi-label classification using MultinomialNB"""
 
-    if not train_set or len(train_set) <= 1:
+    if len(train_set) <= 1:
         return [0] * len(src_keys)
 
     train_fixed = [r.fixed_files for r in train_set]
