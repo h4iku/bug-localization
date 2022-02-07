@@ -61,18 +61,22 @@ class Parser:
         # Convert XML bug repository to a dictionary
         with open(self.bug_repo) as xml_file:
             xml_dict = xmltodict.parse(
-                xml_file.read(), force_list={'file': True})
+                xml_file.read(), force_list={'file', 'bug'})
 
         # Iterate through bug reports and build their objects
         bug_reports = OrderedDict()
 
         for bug_report in xml_dict['bugrepository']['bug']:
+
+            fixed_files = bug_report['fixedFiles']['file']
+            if isinstance(fixed_files[0], dict):
+                fixed_files = [f['#text'] for f in fixed_files]
+
             bug_reports[bug_report['@id']] = BugReport(
                 bug_report['buginformation']['summary'],
-                bug_report['buginformation']['description']
-                if bug_report['buginformation']['description'] else '',
-                [os.path.normpath(path)
-                 for path in bug_report['fixedFiles']['file']]
+                (bug_report['buginformation']['description']
+                    if bug_report['buginformation']['description'] else ''),
+                [os.path.normpath(path) for path in fixed_files],
             )
 
         return bug_reports
@@ -169,6 +173,9 @@ def test():
 
     src_id, src = list(d.items())[10]
     print(src_id, src.exact_file_name, src.package_name)
+
+    bug_id, bug = list(x.items())[10]
+    print(bug_id, bug.fixed_files)
 
 
 if __name__ == '__main__':

@@ -28,6 +28,13 @@ zxing = Dataset(
     _DATASET_ROOT / 'ZXing/ZXingBugRepository.xml'
 )
 
+codec = Dataset(
+    'codec',
+    _DATASET_ROOT / 'CODEC',
+    _DATASET_ROOT / 'CODEC/gitrepo',
+    _DATASET_ROOT / 'CODEC/bugrepo/repository.xml',
+)
+
 # Current dataset in use. (change this name to change the dataset)
 DATASET = zxing
 

@@ -38,7 +38,14 @@ def cost(coeffs, src_files, bug_reports, *rank_scores):
 
         # Getting the ranks of reported fixed files
         relevant_ranks = sorted(src_ranks.index(fixed) + 1
-                                for fixed in fixed_files)
+                                for fixed in fixed_files if fixed in src_ranks)
+
+        # If required fixed files are not in the codebase anymore
+        if not relevant_ranks:
+            mrr.append(0)
+            mean_avgp.append(0)
+            continue
+
         # MRR
         min_rank = relevant_ranks[0]
         mrr.append(1 / min_rank)
@@ -109,7 +116,14 @@ def evaluate(src_files, bug_reports, coeffs, *rank_scores):
 
         # Getting the ranks of reported fixed files
         relevant_ranks = sorted(src_ranks.index(fixed) + 1
-                                for fixed in fixed_files)
+                                for fixed in fixed_files if fixed in src_ranks)
+
+        # If required fixed files are not in the codebase anymore
+        if not relevant_ranks:
+            mrr.append(0)
+            mean_avgp.append(0)
+            continue
+
         # MRR
         min_rank = relevant_ranks[0]
         mrr.append(1 / min_rank)
