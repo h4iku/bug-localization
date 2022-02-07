@@ -114,28 +114,13 @@ class Parser:
             except:
                 pass
 
-            # Trimming the source file
-            ind = False
-            if parse_tree:
-                if parse_tree.imports:
-                    last_imp_path = parse_tree.imports[-1].path
-                    src = src[src.index(last_imp_path) +
-                              len(last_imp_path) + 1:]
-                elif parse_tree.package:
-                    package_name = parse_tree.package.name
-                    src = src[src.index(package_name) + len(package_name) + 1:]
-                else:  # There is no import and no package declaration
-                    ind = True
-            # javalang can't parse the source file
-            else:
-                ind = True
-
             # Lexically tokenize the source file
             lexed_src = pygments.lex(src, java_lexer)
 
             for i, token in enumerate(lexed_src):
                 if token[0] in Token.Comment:
-                    if ind and i == 0 and token[0] is Token.Comment.Multiline:
+                    # Removing the license comment
+                    if i == 0 and token[0] is Token.Comment.Multiline:
                         src = src[src.index(token[1]) + len(token[1]):]
                         continue
                     comments += token[1]
