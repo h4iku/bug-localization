@@ -21,6 +21,8 @@ def check_matchings(src_files, bug_reports):
             if src.file_name['stemmed']:
                 common_tokens = len(set(summary_set['stemmed']) &
                                     set([src.file_name['stemmed'][0]]))
+            else:
+                common_tokens = 0
 
             matched_count.append(common_tokens)
 
