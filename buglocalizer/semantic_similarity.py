@@ -30,8 +30,7 @@ def calculate_similarity(src_files, bug_reports):
             simi = report_doc.similarity(src_doc)
             scores.append(simi)
 
-        scores = np.array([float(count)
-                           for count in scores]).reshape(-1, 1)
+        scores = np.array([float(count) for count in scores]).reshape(-1, 1)
         normalized_scores = np.concatenate(
             min_max_scaler.fit_transform(scores)
         )

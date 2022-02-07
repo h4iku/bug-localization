@@ -5,7 +5,7 @@ import pickle
 import numpy as np
 from scipy import optimize
 
-from datasets import DATASET
+from datasets import DATASET, RESULTS_ROOT
 
 
 def combine_rank_scores(coeffs, *rank_scores):
@@ -74,7 +74,7 @@ def evaluate(src_files, bug_reports, coeffs, *rank_scores):
     final_scores = combine_rank_scores(coeffs, *rank_scores)
 
     # Writer for the output file
-    result_file = open('output.csv', 'w')
+    result_file = open(RESULTS_ROOT / f'{DATASET.name}_output.jsonl', 'w')
 
     top_n = (1, 5, 10)
     top_n_rank = [0] * len(top_n)
@@ -132,7 +132,9 @@ def evaluate(src_files, bug_reports, coeffs, *rank_scores):
         mean_avgp.append(np.mean([len(relevant_ranks[:j + 1]) / rank
                                   for j, rank in enumerate(relevant_ranks)]))
 
-        result_file.write(bug_id + ',' + ','.join(src_ranks) + '\n')
+        result_file.write(json.dumps(
+            {'bug_id': bug_id, 'src_ranks': src_ranks}) + '\n'
+        )
 
     result_file.close()
 
@@ -160,16 +162,28 @@ def main():
     with open(DATASET.root / 'fixed_bug_reports.json', 'r') as file:
         fixed_bug_reports_score = json.load(file)
 
-    params = estiamte_params(src_files, bug_reports,
-                             vsm_similarity_score, token_matching_score,
-                             fixed_bug_reports_score, semantic_similarity_score,
-                             stack_trace_score)
+    params = estiamte_params(
+        src_files,
+        bug_reports,
+        vsm_similarity_score,
+        token_matching_score,
+        fixed_bug_reports_score,
+        semantic_similarity_score,
+        stack_trace_score,
+    )
 
-    results = evaluate(src_files, bug_reports, params,
-                       vsm_similarity_score, token_matching_score,
-                       fixed_bug_reports_score, semantic_similarity_score,
-                       stack_trace_score)
+    results = evaluate(
+        src_files,
+        bug_reports,
+        params,
+        vsm_similarity_score,
+        token_matching_score,
+        fixed_bug_reports_score,
+        semantic_similarity_score,
+        stack_trace_score,
+    )
 
+    print(f'{params = }')
     print('Top N Rank:', results[0])
     print('Top N Rank %:', results[1])
     print('MRR:', results[2])

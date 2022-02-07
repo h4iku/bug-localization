@@ -1,8 +1,10 @@
 from collections import namedtuple
 from pathlib import Path
 
-# Dataset root directory
+# Dataset and results root directory
 _DATASET_ROOT = Path(__file__).parent / '../data'
+RESULTS_ROOT = Path(__file__).parent / '../results'
+RESULTS_ROOT.mkdir(exist_ok=True)
 
 Dataset = namedtuple('Dataset', ['name', 'root', 'src', 'bug_repo'])
 

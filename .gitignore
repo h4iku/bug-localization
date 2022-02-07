@@ -6,6 +6,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Dataset files and generated assets
+# Dataset files and results directory
 data/
-*.csv
+results/
