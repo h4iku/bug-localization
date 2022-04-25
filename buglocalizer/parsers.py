@@ -59,7 +59,7 @@ class Parser:
         """Parse XML format bug reports"""
 
         # Convert XML bug repository to a dictionary
-        with open(self.bug_repo) as xml_file:
+        with open(self.bug_repo, encoding='cp1256') as xml_file:
             xml_dict = xmltodict.parse(
                 xml_file.read(), force_list={'file', 'bug'})
 
