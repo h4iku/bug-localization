@@ -96,7 +96,7 @@ class Parser:
 
         # Looping to parse each source file
         for src_file in src_addresses:
-            with open(src_file) as file:
+            with open(src_file, encoding='cp1256') as file:
                 src = file.read()
 
             # Placeholder for different parts of a source file
