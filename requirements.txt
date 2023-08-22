@@ -1,9 +1,9 @@
 inflection==0.5.1
 javalang==0.13.0
-nltk==3.7
-numpy==1.22.3
-Pygments==2.12.0
-scikit-learn==1.0.2
+nltk==3.8.1
+numpy==1.25.2
+Pygments==2.16.1
+scikit-learn==1.3.0
 scipy==1.10.0
-spacy==3.2.4
+spacy==3.2.6
 xmltodict==0.12.0

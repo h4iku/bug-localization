@@ -1,3 +1,6 @@
+import warnings
+warnings.simplefilter(action="ignore")
+
 import json
 import pickle
 
