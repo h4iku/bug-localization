@@ -1,6 +1,6 @@
 # How to Run
 
-1. Install [Python 3.8+](https://www.python.org/) and clone this repository:
+1. Install [Python 3.10](https://www.python.org/) and clone this repository:
 
     ```bash
     git clone https://github.com/h4iku/bug-localization.git
@@ -10,13 +10,13 @@
 
     ```bash
     cd bug-localization
-    python -m venv env
-    ./env/Scripts/activate
+    python -m venv .venv
+    .venv/Scripts/activate
     python -m pip install -U pip setuptools
     pip install -r requirements.txt
     ```
 
-    Also, download and install the spaCy's [`en_core_web_lg`](https://spacy.io/models/en#en_core_web_lg) pretrained model and [NLTK data](http://www.nltk.org/data.html). From NLTK, only `punkt` and `averaged_perceptron_tagger` are needed that can be downloaded using NLTK Downloader GUI or a Python interpreter:
+    Also, download and install the spaCy's [`en_core_web_lg`](https://spacy.io/models/en#en_core_web_lg) pretrained model (You can download its `whl` file directly from [GitHub releases](https://github.com/explosion/spacy-models/releases/tag/en_core_web_lg-3.2.0)) and [NLTK data](http://www.nltk.org/data.html). From NLTK, only `punkt` and `averaged_perceptron_tagger` are needed that can be downloaded using NLTK Downloader GUI or a Python interpreter:
 
     ```python
     >>> import nltk
